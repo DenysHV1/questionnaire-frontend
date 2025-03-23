@@ -1,0 +1,25 @@
+.header {
+  margin-bottom: 20px;
+  padding: 20px 10px;
+  background-color: black;
+  border-radius: 0 0 10px 10px;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.activeLink {
+  font-weight: 600;
+  font-size: 24px;
+  color: rgb(5, 255, 97);
+}
+
+.noActiveLink {
+  font-weight: 600;
+  font-size: 24px;
+  color: rgb(255, 255, 255);
+}

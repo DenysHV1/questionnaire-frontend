@@ -1,5 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom";
 import s from "./Layout.module.css";
+import { NavLink, Outlet } from "react-router-dom";
+
 const Layout = () => {
   const setActive = ({ isActive }) =>
     isActive ? s.activeLink : s.noActiveLink;
@@ -18,9 +19,14 @@ const Layout = () => {
           </NavLink>
         </nav>
       </header>
-      <main>
+      <main style={{ minHeight: "100vh" }}>
         <Outlet />
       </main>
+      <footer className={s.footer}>
+        <p className={s.footer_text}>
+          Created by Denys Harkusha | All rights reserved © 2025
+        </p>
+      </footer>
     </div>
   );
 };

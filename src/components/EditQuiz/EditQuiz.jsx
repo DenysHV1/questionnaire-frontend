@@ -1,8 +1,14 @@
 import s from "./EditQuiz.module.css";
+
+import { Form, Field, Formik } from "formik";
+import toast from "react-hot-toast";
+
 import { useLocation, useNavigate } from "react-router-dom";
-import BackLink from "../BackLink/BackLink.jsx";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import BackLink from "../BackLink/BackLink.jsx";
+
 import {
   getByIdQuizElementThunk,
   putQuizElementThunk,
@@ -12,8 +18,6 @@ import {
   selectLoading,
   selectQuizElement,
 } from "../../redux/selectors.js";
-import { Form, Field, Formik } from "formik";
-import toast from "react-hot-toast";
 
 const EditQuiz = ({ id }) => {
   const location = useLocation();
@@ -35,28 +39,28 @@ const EditQuiz = ({ id }) => {
   };
 
   const handleSubmit = async (values) => {
-	try {
-	  const updatedQuestions = values.questions.map(({ _id, ...rest }) => rest);
-  
-	  const updatedValues = {
-		...values,
-		questions: updatedQuestions,
-	  };
-  
-	  await toast.promise(
-		dispatch(putQuizElementThunk({ id, body: updatedValues })).unwrap(),
-		{
-		  loading: "Loading...",
-		  success: "Successfully updated",
-		  error: "Error during update",
-		}
-	  );
-  
-	  navigate(`/quiz/${id}`);
-	} catch (error) {
-	  console.log(error);
-	  toast.error("Something went wrong, please try again.");
-	}
+    try {
+      const updatedQuestions = values.questions.map(({ _id, ...rest }) => rest);
+
+      const updatedValues = {
+        ...values,
+        questions: updatedQuestions,
+      };
+
+      await toast.promise(
+        dispatch(putQuizElementThunk({ id, body: updatedValues })).unwrap(),
+        {
+          loading: "Loading...",
+          success: "Successfully updated",
+          error: "Error during update",
+        }
+      );
+
+      navigate(`/quiz/${id}`);
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong, please try again.");
+    }
   };
 
   return (
@@ -70,11 +74,10 @@ const EditQuiz = ({ id }) => {
                 <Formik
                   initialValues={initialValues}
                   onSubmit={handleSubmit}
-                  enableReinitialize={true} // Включаем повторную инициализацию при изменении данных
+                  enableReinitialize={true}
                 >
                   {({ values, handleChange, handleBlur }) => (
                     <Form className={s.form}>
-                      {/* Поля формы для редактирования */}
                       <div className={s.form_group}>
                         <label className={s.form_label} htmlFor="name">
                           Quiz Name
@@ -89,7 +92,6 @@ const EditQuiz = ({ id }) => {
                           onBlur={handleBlur}
                         />
                       </div>
-
                       <div className={s.form_group}>
                         <label className={s.form_label} htmlFor="description">
                           Description
@@ -104,8 +106,6 @@ const EditQuiz = ({ id }) => {
                           onBlur={handleBlur}
                         />
                       </div>
-
-                      {/* Вопросы формы */}
                       <div className={s.questions_group}>
                         <h3>Questions:</h3>
                         {values.questions.map((question, index) => (
@@ -125,8 +125,6 @@ const EditQuiz = ({ id }) => {
                               onChange={handleChange}
                               onBlur={handleBlur}
                             />
-
-                            {/* Тип вопроса */}
                             <div className={s.form_group}>
                               <label
                                 className={s.form_label}
@@ -144,8 +142,6 @@ const EditQuiz = ({ id }) => {
                                 <option value="multiple">Multiple</option>
                               </Field>
                             </div>
-
-                            {/* Опции для вопроса */}
                             {question.options && (
                               <div className={s.options_group}>
                                 <label className={s.form_label}>Options</label>

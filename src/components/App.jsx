@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Layout from "./Layout/Layout.jsx";
 import { lazy, Suspense } from "react";
 
@@ -12,7 +11,9 @@ const CreateQuizPage = lazy(() =>
   import("../pages/CreateQuizPage/CreateQuizPage.jsx")
 );
 
-const EditQuizPage = lazy(() => import('../pages/EditQuizPage/EditQuizPage.jsx'))
+const EditQuizPage = lazy(() =>
+  import("../pages/EditQuizPage/EditQuizPage.jsx")
+);
 
 function App() {
   return (

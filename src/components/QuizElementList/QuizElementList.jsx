@@ -1,15 +1,17 @@
+import s from "./QuizElementList.module.css";
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+
 import {
   selectError,
   selectLoading,
   selectQuizElement,
 } from "../../redux/selectors.js";
 import { getByIdQuizElementThunk } from "../../redux/operations.js";
-import s from "./QuizElementList.module.css";
-import QuizElementItem from "../QuizElementItem/QuizElementItem.jsx";
 
+import QuizElementItem from "../QuizElementItem/QuizElementItem.jsx";
 import BackLink from "../BackLink/BackLink.jsx";
 
 const QuizElementList = ({ id }) => {

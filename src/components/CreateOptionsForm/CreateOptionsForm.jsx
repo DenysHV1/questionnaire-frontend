@@ -1,5 +1,5 @@
-import { Field, Form, Formik } from "formik";
 import s from "./CreateOptionsForm.module.css";
+import { Field, Form, Formik } from "formik";
 
 export const CreateOptionsForm = ({ handleAddOption }) => {
   return (
@@ -12,7 +12,9 @@ export const CreateOptionsForm = ({ handleAddOption }) => {
             </label>
             <Field type="text" id="text" name="text" className={s.form_input} />
           </div>
-          <button type="submit" className={s.form_button}>Add answer</button>
+          <button type="submit" className={s.form_button}>
+            Add answer
+          </button>
         </Form>
       )}
     </Formik>

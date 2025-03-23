@@ -1,7 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
 import s from "./QuizCard.module.css";
-import { CiMenuKebab } from "react-icons/ci";
+
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+
+import { CiMenuKebab } from "react-icons/ci";
 import CardMenu from "../CardMenu/CardMenu.jsx";
 
 const QuizCard = ({ items }) => {

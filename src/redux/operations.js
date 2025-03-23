@@ -54,9 +54,8 @@ export const postQuizElementThunk = createAsyncThunk(
 export const putQuizElementThunk = createAsyncThunk(
   "quiz/putQuizElementThunk",
   async (obj, thunkAPI) => {
-
     console.log(obj);
-    
+
     try {
       const response = await axios.put(`${BASE_URL}/quiz/${obj.id}`, obj.body);
       return { result: response.data.data, id: obj.id };

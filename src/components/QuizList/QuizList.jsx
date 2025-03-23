@@ -1,5 +1,8 @@
+import s from "./QuizList.module.css";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+
 import {
   selectError,
   selectLoading,
@@ -7,7 +10,6 @@ import {
 } from "../../redux/selectors.js";
 import { getQuizListThunk } from "../../redux/operations.js";
 import QuizCard from "../QuizCard/QuizCard.jsx";
-import s from "./QuizList.module.css";
 
 const QuizList = () => {
   const quizList = useSelector(selectQuizList);
@@ -34,8 +36,10 @@ const QuizList = () => {
   return (
     <>
       <div className={s.sortButtons}>
-        <button onClick={() => setSortType("name")}>Sort by Name</button>
-        <button onClick={() => setSortType("questionsCount")}>
+        <button onClick={() => setSortType("name")} className={s.btn}>
+          Sort by Name
+        </button>
+        <button onClick={() => setSortType("questionsCount")} className={s.btn}>
           Sort by Questions Count
         </button>
       </div>

@@ -3,7 +3,7 @@ import CreateQuizForms from "../../components/CreateQuizForms/CreateQuizForms.js
 const CreateQuizPage = () => {
   return (
     <section>
-      <CreateQuizForms/>
+      <CreateQuizForms />
     </section>
   );
 };

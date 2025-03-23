@@ -1,5 +1,5 @@
-import { Field, Form, Formik } from "formik";
 import s from "./CreateQuestionForm.module.css";
+import { Field, Form, Formik } from "formik";
 
 const CreateQuestionForm = ({ handleAddQuestion }) => {
   return (
@@ -20,7 +20,6 @@ const CreateQuestionForm = ({ handleAddQuestion }) => {
               name="label"
             />
           </div>
-
           <div>
             <label htmlFor="type">Question Type:</label>
             <Field as="select" id="type" name="type" className={s.form_select}>
@@ -28,8 +27,9 @@ const CreateQuestionForm = ({ handleAddQuestion }) => {
               <option value="multiple">Multiple</option>
             </Field>
           </div>
-
-          <button type="submit" className={s.form_button}>Add question</button>
+          <button type="submit" className={s.form_button}>
+            Add question
+          </button>
         </Form>
       )}
     </Formik>

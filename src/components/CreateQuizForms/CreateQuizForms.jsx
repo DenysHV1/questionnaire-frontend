@@ -1,14 +1,18 @@
-import { useState } from "react";
 import s from "./CreateQuizForms.module.css";
-import { initialValues } from "./initialValues.js";
+
+import { v4 as uuidv4 } from "uuid";
+import toast from "react-hot-toast";
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import CreateQuestionForm from "../CreateQuestionForm/CreateQuestionForm.jsx";
 import CreateOptionsForm from "../CreateOptionsForm/CreateOptionsForm.jsx";
 import CreateMainSendForm from "../CreateMainSendForm/CreateMainSendForm.jsx";
-import { useDispatch } from "react-redux";
+
 import { postQuizElementThunk } from "../../redux/operations.js";
-import { v4 as uuidv4 } from "uuid";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { initialValues } from "./initialValues.js";
 
 const CreateQuizForms = () => {
   const [quizData, setQuizData] = useState(initialValues);

@@ -1,8 +1,11 @@
-import { useDispatch } from "react-redux";
 import s from "./CardMenu.module.css";
-import { IoIosClose } from "react-icons/io";
-import { deleteQuizListThunk } from "../../redux/operations.js";
+
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { IoIosClose } from "react-icons/io";
+
+import { deleteQuizListThunk } from "../../redux/operations.js";
 
 const CardMenu = ({ id, onCloseCard }) => {
   const dispatch = useDispatch();

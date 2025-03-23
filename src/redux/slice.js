@@ -58,10 +58,9 @@ const quizSlice = createSlice({
 
       .addCase(putQuizElementThunk.pending, handlePending)
       .addCase(putQuizElementThunk.rejected, handleRejected)
-      .addCase(putQuizElementThunk.fulfilled, (state, {payload}) => {
-        state.isLoading = false
-        console.log(payload);
-      })
+      .addCase(putQuizElementThunk.fulfilled, (state) => {
+        state.isLoading = false;
+      });
   },
 });
 

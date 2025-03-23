@@ -11,10 +11,12 @@ const CardMenu = ({ id, onCloseCard }) => {
       <button type="button" className={s.closeCard} onClick={onCloseCard}>
         <IoIosClose />
       </button>
-      <Link to={`editQuiz/${id}`} onClick={onCloseCard}>
+      <Link to={`editQuiz/${id}`} onClick={onCloseCard} className={s.edit}>
         Edit
       </Link>
-      <button type="button">Run</button>
+      <button type="button" disabled={true}>
+        Run
+      </button>
       <button type="button" onClick={() => dispatch(deleteQuizListThunk(id))}>
         Delete
       </button>

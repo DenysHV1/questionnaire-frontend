@@ -6,11 +6,14 @@ import CreateOptionsForm from "../CreateOptionsForm/CreateOptionsForm.jsx";
 import CreateMainSendForm from "../CreateMainSendForm/CreateMainSendForm.jsx";
 import { useDispatch } from "react-redux";
 import { postQuizElementThunk } from "../../redux/operations.js";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CreateQuizForms = () => {
   const [quizData, setQuizData] = useState(initialValues);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   //! handleAddQuestion
   const handleAddQuestion = (values, { resetForm }) => {
@@ -64,7 +67,7 @@ const CreateQuizForms = () => {
   };
 
   //! handleSubmit
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
     if (!values.name.trim()) {
       console.log("Field name is empty!");
       return;
@@ -77,9 +80,14 @@ const CreateQuizForms = () => {
       console.log("Where is quiz?");
       return;
     }
-console.log(values);
 
-    dispatch(postQuizElementThunk(values))
+    await toast.promise(dispatch(postQuizElementThunk(values)).unwrap(), {
+      loading: "Loading...",
+      success: "Successfully updated",
+      error: "Error during update",
+    });
+
+    navigate(`/quiz`);
   };
 
   return (

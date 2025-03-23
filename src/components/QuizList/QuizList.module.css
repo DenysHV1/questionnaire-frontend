@@ -6,3 +6,11 @@
 	gap: 20px;
 	margin-top: 20px;
 }
+
+.sortButtons{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+}
